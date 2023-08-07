@@ -24,6 +24,26 @@ Verifica o status atual do do git
 git status
 ```
 
+Vincula seu repositório do github à pasta local
+```
+git remote add origin https://github.com/renancavichi/api-node-express-ads2sem2023
+```
+
+Adiciona os arquivos no stage
+```
+git add .
+```
+
+Comita as alterações no stage
+```
+git commit -m "Texto do commit"
+```
+
+Publica os commits no github
+```
+git push
+```
+
 ### Node
 
 Verifica a versão do node instalada
