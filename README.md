@@ -50,5 +50,25 @@ Verifica a versão do node instalada
 ```
 node -v
 ```
+Inicializa o gerenciador de pacote em um novo projeto.
+```
+npm init
+```
+
+Instala um novo pacote
+```
+npm i [nome-do-pacote]
+```
+
+Instala um novo pacote como dependencia de dev
+```
+npm i [nome-do-pacote] -D
+```
+
+Rodar os scripts do package json
+```
+npm run [nome do script]
+```
+
 
 ### NPM (Node Package Manager)
