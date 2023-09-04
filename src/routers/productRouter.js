@@ -1,22 +1,18 @@
 import express from 'express'
+import getProduct from '../controllers/product/getProduct.js'
+import listProducts from '../controllers/product/listProducts.js'
+import insertProduct from '../controllers/product/insertProduct.js'
+import updateProduct from '../controllers/product/updateProduct.js'
+import deleteProduct from '../controllers/product/deleteProduct.js'
 
 const router = express.Router()
 
-//cria uma rota na raiz
-router.get('/', (req, res) => {
-    res.json({message: "produto get"})
-})
 
-router.post('/', (req, res) => {
-    res.json({message: "produto post"})
-})
+router.get('/', getProduct)
+router.get('/list', listProducts)
+router.post('/', insertProduct)
+router.put('/', updateProduct)
+router.delete('/', deleteProduct)
 
-router.put('/', (req, res) => {
-    res.json({message: "produto put"})
-})
-
-router.delete('/', (req, res) => {
-    res.json({message: "deletar produto"})
-})
 
 export default router

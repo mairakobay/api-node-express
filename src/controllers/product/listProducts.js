@@ -1,17 +1,16 @@
 import product from '../../models/productModel.js'
 
-const getProduct = async (req, res) => {
+const listProduct = async (req, res) => {
     try{
-        const userData = req.body
-        const [rows] = await product.getById(productData.id)
+        const [rows] = await product.getAll()
         if(rows.length === 0){
             res.status(404).json({
-                error: `Produto id: ${productData.id} não encontrado!`
+                error: `Nenhum produto encontrado!`
             })
         } else {
             res.json({
-                success: "Produto encontrado com sucesso",
-                produto: rows[0]
+                success: "Produto(s) encontrado(s) com sucesso!",
+                product: rows
             })
         }
     } catch (error){
@@ -22,4 +21,4 @@ const getProduct = async (req, res) => {
     }
 }
 
-export default getProduct
+export default listProduct
