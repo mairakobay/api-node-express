@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Set-2023 às 22:20
+-- Tempo de geração: 25-Set-2023 às 19:48
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -34,6 +34,15 @@ CREATE TABLE `product` (
   `tamanho` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `product`
+--
+
+INSERT INTO `product` (`id`, `produto`, `preco`, `tamanho`) VALUES
+(1, 'dog', '20', 'P'),
+(2, 'cat', '10', 'G'),
+(3, 'bird', '40', 'M');
+
 -- --------------------------------------------------------
 
 --
@@ -44,17 +53,18 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(500) NOT NULL,
-  `pass` varchar(256) NOT NULL
+  `pass` varchar(256) NOT NULL,
+  `photo` varchar(700) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `pass`) VALUES
-(1, 'Maíra Kobayashi', 'maira.k@aluno.ifsp.edu.br', '123456'),
-(2, 'João da Silva', 'joao@gmail.com', '123123'),
-(3, 'Vitoria', 'vitoria@hotmail.com', '123456');
+INSERT INTO `users` (`id`, `name`, `email`, `pass`, `photo`) VALUES
+(1, 'Maíra Kobayashi', 'maira.k@aluno.ifsp.edu.br', '123456', 'https://avatars.githubusercontent.com/u/130098548?v=4'),
+(2, 'João da Silva', 'joao@gmail.com', '123123', 'https://avatars.githubusercontent.com/u/760949?v=4'),
+(3, 'Vitoria', 'vitoria@hotmail.com', '123456', 'https://avatars.githubusercontent.com/u/12497844?v=4');
 
 --
 -- Índices para tabelas despejadas
@@ -80,7 +90,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `users`
