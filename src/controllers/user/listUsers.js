@@ -10,7 +10,7 @@ const listUser = async (req, res) => {
         } else {
             res.json({
                 success: "Usuário(s) encontrado(s) com sucesso!",
-                user: rows
+                users: rows
             })
         }
     } catch (error){

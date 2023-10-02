@@ -23,7 +23,7 @@ api.use('/user', userRouter)
 api.use('/product', productRouter)
 api.use('/auth', authRouter)
 
-api.listen (PORT, () => {
+api.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}! http://localhost:${PORT}`)
 })
 
