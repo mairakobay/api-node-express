@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Set-2023 às 19:48
+-- Tempo de geração: 23-Out-2023 às 22:22
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -46,6 +46,18 @@ INSERT INTO `product` (`id`, `produto`, `preco`, `tamanho`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `token` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `users`
 --
 
@@ -64,7 +76,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `pass`, `photo`) VALUES
 (1, 'Maíra Kobayashi', 'maira.k@aluno.ifsp.edu.br', '123456', 'https://avatars.githubusercontent.com/u/130098548?v=4'),
 (2, 'João da Silva', 'joao@gmail.com', '123123', 'https://avatars.githubusercontent.com/u/760949?v=4'),
-(3, 'Vitoria', 'vitoria@hotmail.com', '123456', 'https://avatars.githubusercontent.com/u/12497844?v=4');
+(3, 'Vitoria', 'vitoria@hotmail.com', '123456', 'https://avatars.githubusercontent.com/u/12497844?v=4'),
+(7, 'Patricia', 'patricia@gmail.com', '123', 'https://avatars.githubusercontent.com/u/1019119?v=4'),
+(8, 'Henrique Carvalho', 'henrique@gmail.com', '', 'https://avatars.githubusercontent.com/u/1244737?v=4');
 
 --
 -- Índices para tabelas despejadas
@@ -75,6 +89,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `pass`, `photo`) VALUES
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`),
+  ADD KEY `id_user_user_id` (`id_user`);
 
 --
 -- Índices para tabela `users`
@@ -93,10 +115,26 @@ ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `sessions`
+--
+ALTER TABLE `sessions`
+  ADD CONSTRAINT `id_user_user_id` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
